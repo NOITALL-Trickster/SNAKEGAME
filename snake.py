@@ -38,6 +38,14 @@ class Snake:
             self.segments[seg_num].goto(x_cor, y_cor)
         self.head.forward(SPEED)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.no_of_tails = 3
+        self.create_snake()
+        self.head = self.segments[0]
+
     def up(self):
         if self.head.heading() != DOWN:
             self.head.setheading(90)
